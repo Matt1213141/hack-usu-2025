@@ -39,6 +39,9 @@ signal player_damaged( hurt_box : HurtBox )
 # Called when the player enters the scene for the first time
 func _ready() -> void:
 	# Failsafe: ensure the player is instantiated
+	visible = false
+	if PlayerManager.is_world():
+		visible = true
 	if PlayerManager.player == null:
 		PlayerManager.player = self
 	else:
