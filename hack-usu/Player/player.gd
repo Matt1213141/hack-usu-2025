@@ -42,10 +42,17 @@ func _ready() -> void:
 	#visible = false
 	#if PlayerManager.is_world():
 		#visible = true
+<<<<<<< HEAD
 	#if PlayerManager.player == null:
 		#PlayerManager.player = self
 	#else:
 		#pass
+=======
+	if PlayerManager.player == null:
+		PlayerManager.player = self
+	else:
+		pass
+>>>>>>> scripts
 	setup_tank_configuration()
 	
 	state_machine.Initialize( self )

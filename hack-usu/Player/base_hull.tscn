@@ -6,6 +6,10 @@
 
 [node name="BaseHull" type="Node2D"]
 script = ExtResource("1_3xhpv")
+hp = 10
+max_hp = 10
+velocity = Vector2(100, 100)
+speed_modifier = 100.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_s1x8t")
