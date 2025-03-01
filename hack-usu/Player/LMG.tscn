@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://dw1roahbnsgru"]
+
+[ext_resource type="Script" path="res://Player/Scripts/base_turret.gd" id="1_05slf"]
+[ext_resource type="Texture2D" uid="uid://cem2vml1fo3je" path="res://image_assets/PNG Tank/Weapon_Color_A/Gun_07.png" id="1_tmi2s"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cvjmh"]
+radius = 471.534
+
+[node name="Lmg" type="Node2D"]
+script = ExtResource("1_05slf")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_tmi2s")
+
+[node name="Marker2D" type="Marker2D" parent="Sprite2D"]
+position = Vector2(-2, 52)
+
+[node name="DetectionRange" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionRange"]
+scale = Vector2(1.5, 1.5)
+shape = SubResource("CircleShape2D_cvjmh")
