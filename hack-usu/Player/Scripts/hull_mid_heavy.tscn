@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://cgecmbl7oqakn"]
+
+[ext_resource type="Script" path="res://Player/Scripts/base_hull.gd" id="1_86vmv"]
+[ext_resource type="Texture2D" uid="uid://b4y1veytg605y" path="res://image_assets/PNG Tank/Hulls_Color_A/Hull_01.png" id="2_ghh82"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vmiy7"]
+radius = 73.0
+height = 230.0
+
+[node name="HullMidHeavy" type="Node2D"]
+script = ExtResource("1_86vmv")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_ghh82")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D"]
+shape = SubResource("CapsuleShape2D_vmiy7")
