@@ -1,5 +1,16 @@
 class_name Player extends CharacterBody2D
 
+const TankManager = preload("res://Globals/tank_manager.gd")
+
+# Load all variables from the tank manager class
+var turret_type: String
+var hull_type: String
+var tank_color: String
+
+var speed_multiplier: int
+var armor_multiplier: int
+var fire_rate_multiplier: int
+var range_multiplier: int
 # Other scripts have access by putting it at the root level of the script
 var cardinal_direction : Vector2 = Vector2.DOWN
 const DIR_4 = [ Vector2.RIGHT, Vector2.DOWN, Vector2.LEFT, Vector2.UP ]
@@ -8,6 +19,7 @@ var direction : Vector2 = Vector2.ZERO
 var invulnerable = false
 var hp : int = 100 # It's a tank, so it might have a lot
 var max_hp : int =  1000000000000000000
+
 
 @onready var animation_player : AnimationPlayer = $AnimationPlayer
 @onready var effect_animation_player : AnimationPlayer = null # TODO INSERT PATH HERE
@@ -26,7 +38,8 @@ func _ready() -> void:
 		PlayerManager.player = self
 	else:
 		pass
-		
+	setup_tank_configuration()
+	
 	state_machine.Initialize(self)
 	#hit_box.Damaged.connect( _take_damage )
 	#update_hp(1000000) # Ensure player has full health when they spawn
@@ -40,6 +53,7 @@ func _process(delta : float) -> void:
 	).normalized()
 	
 func _physics_process(delta: float) -> void:
+	velocity = direction * $MovementComponent.speed * speed_multiplier
 	move_and_slide()
 	
 func SetDirection() -> bool:
@@ -83,3 +97,26 @@ func _take_damage( hurt_box : HurtBox ) -> void:
 	
 func update_hp( delta : int ) -> void: 
 	hp = clampi( hp + delta, 0, max_hp)
+
+func setup_tank_configuration() -> void:
+	var turret_index = null
+	var hull_index = null
+	var color_index = null
+	
+	turret_type = TankManager.turrets[turret_index]
+	hull_type = TankManager.hulls[hull_index]
+	tank_color = TankManager.colors[color_index]
+	speeed_multiplier = TankManager.speed_multipliers[hull_index]
+	armor_multiplier = TankManager.armor_multipliers[hull_index]
+	fire_rate_multiplier = TankManager.fire_rate_multiplier[turret_index]
+	range_multiplier = TankManager.range_multiplier[turret_index]
+	
+func apply_tank_configuration() -> void:
+	# Apply all visual loads here
+	
+	# Apply stat changes here
+	max_hp *= armor_multiplier
+	hp = max_hp
+	$MovementComponent.speed *= speed_multiplier
+	$WeaponComponent.fire_rate *= fire_rate_multiplier
+	$WeaponComponent.range *= range_multiplier

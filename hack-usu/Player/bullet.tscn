@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://c3j01u60wvjoe"]
+
+[ext_resource type="Texture2D" uid="uid://burh4lln1lfx1" path="res://image_assets/PNG Tank/Effects/Granade_Shell.png" id="1_5pxsy"]
+[ext_resource type="Script" path="res://Player/Scripts/bullet.gd" id="1_l4xxb"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_68fqc"]
+height = 44.0
+
+[node name="Bullet" type="Area2D"]
+script = ExtResource("1_l4xxb")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_5pxsy")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_68fqc")
