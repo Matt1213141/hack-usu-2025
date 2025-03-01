@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dmj4kcj5uavr5"
+path="res://.godot/imported/Steel Horizons.mp3-46336c7423c5170840b08e39eae59da5.mp3str"
+
+[deps]
+
+source_file="res://menus/Steel Horizons.mp3"
+dest_files=["res://.godot/imported/Steel Horizons.mp3-46336c7423c5170840b08e39eae59da5.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
