@@ -1,54 +1,79 @@
-[gd_scene load_steps=5 format=3 uid="uid://c6s1j6dexb1cq"]
+[gd_scene load_steps=7 format=3 uid="uid://c6s1j6dexb1cq"]
 
-[ext_resource type="Texture2D" uid="uid://d21s85q4j1ljd" path="res://image_assets/robot.png" id="1_2trtx"]
-
-[sub_resource type="Animation" id="Animation_jf02p"]
-resource_name = "idle_down"
-length = 0.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3, 4]
-}
+[ext_resource type="Texture2D" uid="uid://b4y1veytg605y" path="res://image_assets/PNG Tank/Hulls_Color_A/Hull_01.png" id="1_h1jjs"]
+[ext_resource type="Texture2D" uid="uid://b5fctr2tkx6v0" path="res://image_assets/PNG Tank/Effects/Heavy_Shell.png" id="2_nvubg"]
+[ext_resource type="Texture2D" uid="uid://p63q6ov3bfip" path="res://image_assets/PNG Tank/Weapon_Color_A/Gun_01.png" id="3_7c43s"]
 
 [sub_resource type="Animation" id="Animation_8lo8p"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
+tracks/0/path = NodePath("Node2D/Gun01:offset")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Node2D/Gun01:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_6epj2"]
+resource_name = "Shooting"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node2D/Gun01:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 50), Vector2(0, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_lftlc"]
 _data = {
 "RESET": SubResource("Animation_8lo8p"),
-"idle_down": SubResource("Animation_jf02p")
+"Shooting": SubResource("Animation_6epj2")
 }
 
-[node name="CharacterBody2D" type="CharacterBody2D"]
-position = Vector2(-73, 25)
+[node name="TankTeam1" type="CharacterBody2D"]
+position = Vector2(-36, 19)
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_2trtx")
-hframes = 5
-vframes = 5
+[node name="Tank Body" type="Sprite2D" parent="."]
+position = Vector2(36, -15)
+texture = ExtResource("1_h1jjs")
+
+[node name="Node2D" type="Node2D" parent="Tank Body"]
+position = Vector2(0, 48)
+
+[node name="HeavyShell" type="Sprite2D" parent="Tank Body/Node2D"]
+position = Vector2(-2.05929, -3.57203)
+texture = ExtResource("2_nvubg")
+
+[node name="Gun01" type="Sprite2D" parent="Tank Body/Node2D"]
+position = Vector2(-0.999969, -55)
+scale = Vector2(1, 1)
+texture = ExtResource("3_7c43s")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-root_node = NodePath("../Sprite2D")
+root_node = NodePath("../Tank Body")
 libraries = {
 "": SubResource("AnimationLibrary_lftlc")
 }
