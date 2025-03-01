@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 [gd_scene load_steps=3 format=3 uid="uid://derarha15r4ne"]
+=======
+[gd_scene load_steps=3 format=3 uid="uid://co2sg8kq2p1so"]
+>>>>>>> konner
 
 [ext_resource type="Script" path="res://line_edit.gd" id="1_r612b"]
 
@@ -25,7 +29,10 @@ alignment = 1
 expand_to_text_length = true
 caret_blink = true
 script = ExtResource("1_r612b")
+<<<<<<< HEAD
 player_num = "2"
+=======
+>>>>>>> konner
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0

@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://csulkx6l7gsi7"]
+[gd_scene load_steps=4 format=3 uid="uid://csulkx6l7gsi7"]
 
 [ext_resource type="Script" path="res://line_edit.gd" id="1_e4eim"]
+[ext_resource type="Script" path="res://label_2.gd" id="2_g7r81"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1f25y"]
 
@@ -22,10 +23,8 @@ offset_right = 896.0
 offset_bottom = 603.0
 placeholder_text = "Enter Text"
 alignment = 1
-expand_to_text_length = true
 caret_blink = true
 script = ExtResource("1_e4eim")
-player_num = "1"
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
@@ -46,5 +45,6 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_1f25y")
 text = "Please Wait"
 horizontal_alignment = 1
 vertical_alignment = 1
+script = ExtResource("2_g7r81")
 
 [connection signal="text_submitted" from="LineEdit" to="LineEdit" method="_on_text_submitted"]

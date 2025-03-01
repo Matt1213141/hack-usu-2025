@@ -15,6 +15,7 @@ var tank_set_6 = ["Surround", ["2", "1"], ["C", "D"], ["A", "B"], ["B", "C"], ["
 
 
 func _ready():
+	print(get_tree())
 	text_label.hide()
 
 
@@ -62,6 +63,20 @@ func _on_request_completed(result: int, response_code: int, headers: Array, body
 			if response is Array and response.size() > 0:
 				var generated_text = response[0].get("generated_text", "No generated text")
 				print("Generated text: ", generated_text)
+				# Extract only the array from the generated text
+				var start_index = generated_text.find("[")
+				var end_index = generated_text.rfind("]")
+				
+				if start_index != -1 and end_index != -1:
+					var clean_json_string = generated_text.substr(start_index, end_index - start_index + 1)
+
+					# Parse the cleaned JSON string
+					var clean_json = JSON.new()
+					var parse_err = clean_json.parse(clean_json_string)
+
+					if parse_err == OK:
+						var extracted_array = clean_json.get_data()
+
 				if player_num == "1":
 					LlmResources.llm_response1=generated_text
 				else:
@@ -77,8 +92,8 @@ func _on_request_completed(result: int, response_code: int, headers: Array, body
 	var chosen_tank_set = tank_sets[randi() % tank_sets.size()]
 	if player_num == "1":
 			LlmResources.llm_response1=chosen_tank_set
+			get_tree().change_scene_to_file("res://World.tscn")
 	else:
 			LlmResources.llm_response2=chosen_tank_set
 	print(LlmResources.llm_response1)
 	print(LlmResources.llm_response2)
-	

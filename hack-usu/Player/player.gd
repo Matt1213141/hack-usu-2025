@@ -102,14 +102,14 @@ func setup_tank_configuration() -> void:
 	var turret_index = null
 	var hull_index = null
 	var color_index = null
-	
-	turret_type = TankManager.turrets[turret_index]
-	hull_type = TankManager.hulls[hull_index]
-	tank_color = TankManager.colors[color_index]
-	speeed_multiplier = TankManager.speed_multipliers[hull_index]
-	armor_multiplier = TankManager.armor_multipliers[hull_index]
-	fire_rate_multiplier = TankManager.fire_rate_multiplier[turret_index]
-	range_multiplier = TankManager.range_multiplier[turret_index]
+	#
+	#turret_type = TankManager.turrets[turret_index]
+	#hull_type = TankManager.hulls[hull_index]
+	#tank_color = TankManager.colors[color_index]
+	#speeed_multiplier = TankManager.speed_multipliers[hull_index]
+	#armor_multiplier = TankManager.armor_multipliers[hull_index]
+	#fire_rate_multiplier = TankManager.fire_rate_multiplier[turret_index]
+	#range_multiplier = TankManager.range_multiplier[turret_index]
 	
 func apply_tank_configuration() -> void:
 	# Apply all visual loads here
