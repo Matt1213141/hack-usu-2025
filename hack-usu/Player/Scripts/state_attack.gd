@@ -16,7 +16,7 @@ func _ready() -> void:
 # What happens when the player enters this state
 func Enter() -> void:
 	player.UpdateAnimation("attack")
-	attack_anim.play("attack_" + player.AnimDirection) # TODO, should be child of player sprite
+	attack_anim.play("attack_" + player.anim_direction()) # TODO, should be child of player sprite
 	animation_player.animation_finished.connect( EndAttack ) # enter the EndAttack function when animation is finished
 	
 	attacking = true

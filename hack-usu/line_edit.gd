@@ -53,7 +53,7 @@ func _on_request_completed(result: int, response_code: int, headers: Array, body
 			if response is Array and response.size() > 0:
 				var generated_text = response[0].get("generated_text", "No generated text")
 				print("Generated text: ", generated_text)
-				LLM_resources.llm_response1=generated_text
+				LlmResources.llm_response1=generated_text
 			else:
 				print("Unexpected response structure: ", response)
 		else:

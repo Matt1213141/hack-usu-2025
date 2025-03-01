@@ -37,7 +37,8 @@ func Initialize( _player : Player ) -> void:
 	states[0].state_machine = self
 	
 	for state in states:
-		state.init()
+		pass
+		#state.init()
 		
 	ChangeState( states[0] )
 	process_mode = Node.PROCESS_MODE_INHERIT

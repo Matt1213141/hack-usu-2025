@@ -1,13 +1,12 @@
 class_name BaseTank extends CharacterBody2D
 
-export var armor = 60
-export var velocity = 200
-export var turret_rotation_speed = 3.0
+@export var hull: Node2D
+@export var turret: Node2D
+@export var color: String
 
-@export var hull = $Hull
-@export var turret = $Turret
-
-var input_vector = Vector2.ZERO
+var input_vector : Vector2 = Vector2.ZERO
+var direction : Vector2 = Vector2.RIGHT
+var speed : float = 100.0
 
 func _physics_process(delta: float) -> void:
 	velocity = direction * speed
@@ -25,3 +24,13 @@ func _physics_process(delta: float) -> void:
 func _ready():
 	# Set initial rotation
 	rotation = direction.angle()
+
+func swap_hull(new_hull_scene: PackedScene):
+	var new_hull = new_hull_scene.instantiate()
+	hull.replace_by(new_hull)
+	hull = new_hull
+
+func swap_turret(new_turret_scene: PackedScene):
+	var new_turret = new_turret_scene.instantiate()
+	turret.replace_by(new_turret)
+	turret = new_turret

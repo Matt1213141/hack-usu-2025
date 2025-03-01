@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=4 uid="uid://crvj7qvv1hyak"]
+[gd_scene load_steps=40 format=4 uid="uid://crvj7qvv1hyak"]
 
 [ext_resource type="Texture2D" uid="uid://m8rp1jfqlksg" path="res://image_assets/RPG-Tileset/craftpix-566611-free-battle-location-top-down-game-tileset-pack/PNG/Tiles/Ground_Tile_02_C.png" id="1_bbyuw"]
 [ext_resource type="PackedScene" uid="uid://c6s1j6dexb1cq" path="res://Player/player.tscn" id="2_5uv8p"]
@@ -19,6 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://ds1dl3hovfndr" path="res://image_assets/RPG-Tileset/craftpix-566611-free-battle-location-top-down-game-tileset-pack/PNG/Props/Tree_01.png" id="16_7vd5y"]
 [ext_resource type="Texture2D" uid="uid://c4wykgon155of" path="res://image_assets/RPG-Tileset/craftpix-566611-free-battle-location-top-down-game-tileset-pack/PNG/Props/Tree_02.png" id="17_wjfrr"]
 [ext_resource type="Texture2D" uid="uid://bmlrswbw4y0f2" path="res://image_assets/RPG-Tileset/craftpix-566611-free-battle-location-top-down-game-tileset-pack/PNG/Props/Tree_05.png" id="18_qhxcl"]
+[ext_resource type="AudioStream" uid="uid://esmlqq8wu6nn" path="res://menus/Shadows of Command.mp3" id="20_pkuxq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_d1e0i"]
 texture = ExtResource("1_bbyuw")
@@ -136,3 +137,8 @@ scale = Vector2(0.1, 0.1)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(270, 130)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("20_pkuxq")
+autoplay = true
+parameters/looping = true

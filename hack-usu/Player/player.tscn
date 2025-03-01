@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://c6s1j6dexb1cq"]
+[gd_scene load_steps=17 format=3 uid="uid://c6s1j6dexb1cq"]
 
 [ext_resource type="Texture2D" uid="uid://b4y1veytg605y" path="res://image_assets/PNG Tank/Hulls_Color_A/Hull_01.png" id="1_h1jjs"]
 [ext_resource type="Script" path="res://Player/player.gd" id="1_w8nmy"]
@@ -64,9 +64,6 @@ _data = {
 
 [sub_resource type="ConcavePolygonShape2D" id="ConcavePolygonShape2D_4b43p"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_w5fh0"]
-radius = 1133.58
-
 [node name="TankTeam1" type="CharacterBody2D"]
 position = Vector2(-36, 19)
 script = ExtResource("1_w8nmy")
@@ -113,13 +110,7 @@ script = ExtResource("10_bn2ej")
 shape = SubResource("ConcavePolygonShape2D_4b43p")
 
 [node name="HurtBox" parent="." instance=ExtResource("10_kcwdx")]
+unique_name_in_owner = true
 script = ExtResource("12_kkiji")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="HurtBox"]
-
-[node name="DetectionRange" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionRange"]
-position = Vector2(34, -14)
-scale = Vector2(0.5, 0.5)
-shape = SubResource("CircleShape2D_w5fh0")
