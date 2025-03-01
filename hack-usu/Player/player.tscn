@@ -69,7 +69,6 @@ texture = ExtResource("2_nvubg")
 
 [node name="Gun01" type="Sprite2D" parent="Tank Body/Node2D"]
 position = Vector2(-0.999969, -55)
-scale = Vector2(1, 1)
 texture = ExtResource("3_7c43s")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

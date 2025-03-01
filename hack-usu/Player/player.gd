@@ -27,8 +27,8 @@ func _ready() -> void:
 		pass
 		
 	state_machine.Initialize(self)
-	hit_box.Damaged.connect( _take_damage )
-	update_hp(1000000) # Ensure player has full health when they spawn
+	#hit_box.Damaged.connect( _take_damage )
+	#update_hp(1000000) # Ensure player has full health when they spawn
 	pass
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame
@@ -41,7 +41,7 @@ func _process(delta : float) -> void:
 func _physics_process(delta: float) -> void:
 	move_and_slide()
 	
-func SetDirection() -> bool:
-	if direction == Vector2.ZERO:
-		# no movement detected, don't change the direction
-		return false
+#func SetDirection() -> bool:
+	#if direction == Vector2.ZERO:
+		## no movement detected, don't change the direction
+		#return false

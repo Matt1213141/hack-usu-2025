@@ -13,5 +13,5 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	ChangeState( current_state.Process( delta ) ) # Checks every frame if the state has changed
+	#ChangeState( current_state.Process( delta ) ) # Checks every frame if the state has changed
 	pass
