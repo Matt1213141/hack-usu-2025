@@ -1,4 +1,4 @@
-[gd_scene load_steps=132 format=4 uid="uid://ip6p1h6uid42"]
+[gd_scene load_steps=132 format=4 uid="uid://crvj7qvv1hyak"]
 
 [ext_resource type="Texture2D" uid="uid://m8rp1jfqlksg" path="res://image_assets/RPG-Tileset/craftpix-566611-free-battle-location-top-down-game-tileset-pack/PNG/Tiles/Ground_Tile_02_C.png" id="1_bbyuw"]
 [ext_resource type="PackedScene" uid="uid://c6s1j6dexb1cq" path="res://Player/player.tscn" id="2_5uv8p"]
@@ -236,7 +236,6 @@ texture_region_size = Vector2i(256, 256)
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sk31m"]
 texture = SubResource("CompressedTexture2D_ly0dy")
 texture_region_size = Vector2i(128, 128)
-0:0/size_in_atlas = Vector2i(2, 2)
 0:0/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hbtvd"]
