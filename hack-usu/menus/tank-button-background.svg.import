@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d21s85q4j1ljd"
-path="res://.godot/imported/robot.png-339c65f00a7f10a10f4114492dd22de6.ctex"
+uid="uid://bq1xyfufyrntl"
+path="res://.godot/imported/tank-button-background.svg-f12717c918deb552774a2981cc65adf3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://image_assets/robot.png"
-dest_files=["res://.godot/imported/robot.png-339c65f00a7f10a10f4114492dd22de6.ctex"]
+source_file="res://menus/tank-button-background.svg"
+dest_files=["res://.godot/imported/tank-button-background.svg-f12717c918deb552774a2981cc65adf3.ctex"]
 
 [params]
 
@@ -32,3 +32,6 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
+svg/scale=1.0
+editor/scale_with_editor_scale=false
+editor/convert_colors_with_editor_theme=false
