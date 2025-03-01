@@ -23,8 +23,10 @@ offset_right = 896.0
 offset_bottom = 603.0
 placeholder_text = "Enter Text"
 alignment = 1
+expand_to_text_length = true
 caret_blink = true
 script = ExtResource("1_e4eim")
+player_num = "1"
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0

@@ -76,7 +76,6 @@ func _on_request_completed(result: int, response_code: int, headers: Array, body
 
 					if parse_err == OK:
 						var extracted_array = clean_json.get_data()
-						
 				if player_num == "1":
 					LlmResources.llm_response1=generated_text
 				else:
