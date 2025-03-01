@@ -35,7 +35,6 @@ func _on_text_submitted(new_text: String) -> void:
 	http_request.connect("request_completed", Callable(self, "_on_request_completed"))
 	
 	# Prepare your prompt and JSON data
-	var prompt = "I have a tank game, tanks have different bodies and turrets. The user will give an idea of how they want their group of 6 tanks to be. Your job is to pick what kinds of tanks they will have. Here are the types of tank bodies: \"Medium\" which has medium speed and is balanced. \"Small\" which is fast and sneaky. \"Big\" which is very strong and powerful. \"Quick\" has medium armour and is a bit faster. Here are the turret types: \"Medium\" has medium damage, range, and fire rate. \"Sniper\" has long range, high damage, and slow firing. \"Grenade\" has smaller range, slower fire rate, and lots of daamge. \"SMG\" has fast fire rate, small range, and small damage. Also pick a strategy: \"Sneak\" is more stealthy and attacks from behind. \"Surround\" is aggressive and attacks from all sides. \"Right\" puts tanks on the right side. \"Left\" puts tanks on the left. Give me six tanks and the strategy in this format, with the strategy included in the array. The body color is \"1\" if it is faster but weaker and \'2\" if stronger and slower. The turret is \"1\" if it has smaller range but faster fire rate and \"2\" for slower fire rate and longer range. Respond only with a single array formatted as given.  [\"strategy\",[\"body_color\",\"turret_color\"][\"body_class1\",\"turret_class1\"],[\"body_class2\",\"turret_class2\"],[\"body_class3\",\"turret_class3\"],[\"body_class4\",\"turret_class4\"],[\"body_class5\",\"turret_class5\"],[\"body_class6\",\"turret_class6\"]] Here is what the user wants: " + new_text
 	var prompt = "I have a tank game, tanks have different bodies and turrets. 
 	The user will give an idea of how they want their group of 6 tanks to be. 
 	Your job is to pick what kinds of tanks they will have. Here are the types of tank bodies: \"A\"
@@ -95,10 +94,10 @@ func _on_request_completed(result: int, response_code: int, headers: Array, body
 
 				if player_num == "1":
 					LlmResources.llm_response1=generated_text
-					get_tree().change_scene_to_file("res://player2_input.tscn")
+					SceneTransitionManager.transition_to("res://player2_input.tscn")
 				else:
 					LlmResources.llm_response2=generated_text
-					SceneManager.transition_to("res://World.tscn")
+					SceneTransitionManager.transition_to("res://World.tscn")
 					
 				SceneTransitionManager.transition_to("res://player2_input.tscn")
 				LlmResources.llm_response1=generated_text

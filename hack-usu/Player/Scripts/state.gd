@@ -8,7 +8,7 @@ static var state_machine : PlayerStateMachine
 func _ready() -> void:
 	pass # Replace with function body.
 
-func _init() -> void:
+func init() -> void:
 	pass 
 
 # What happens when the player enters the state? 

@@ -7,7 +7,7 @@ var current_state: State
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	process_mode = Node.PROCESS_MODE_INHERIT
+	process_mode = Node.PROCESS_MODE_DISABLED
 	pass # Replace with function body.
 
 
@@ -17,15 +17,19 @@ func _process(delta: float) -> void:
 	pass
 	
 func _physics_process(delta: float) -> void:
-	ChangeState( current_state.Physics( delta ) ) 
+	if current_state != null:
+		ChangeState( current_state.Physics( delta ) )
+	else:
+		print('This is a warning message. You should not be seeing this message') 
 	
 # We might not need this function, but could be useful for debugging
 func _unhandled_input(event: InputEvent) -> void:
-	ChangeState( current_state.HandleInput( event ) ) 
+	ChangeState( current_state.HandleInput( event ) )
+	pass 
 	
 	
 func Initialize( _player : Player ) -> void:
-	var states = []
+	states = []
 	for c in get_children():
 		if c is State:
 			states.append( c )
@@ -37,8 +41,7 @@ func Initialize( _player : Player ) -> void:
 	states[0].state_machine = self
 	
 	for state in states:
-		pass
-		#state.init()
+		state.init()
 		
 	ChangeState( states[0] )
 	process_mode = Node.PROCESS_MODE_INHERIT
