@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://csulkx6l7gsi7"]
+[gd_scene load_steps=5 format=3 uid="uid://dntkww7ymh7ct"]
 
 [ext_resource type="Script" path="res://line_edit.gd" id="1_e4eim"]
 [ext_resource type="Script" path="res://label_2.gd" id="2_g7r81"]
+[ext_resource type="Texture2D" uid="uid://bsaxtekkjogr3" path="res://menus/DALL·E 2025-02-28 22.25.25 - A high-quality start screen background for a tank battle game. The scene is a top-down view of a battlefield with multiple futuristic tanks in differe.webp" id="3_f78n7"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1f25y"]
 
@@ -16,6 +17,8 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="LineEdit" type="LineEdit" parent="."]
+top_level = true
+z_index = 5
 layout_mode = 0
 offset_left = 208.0
 offset_top = 91.0
@@ -32,7 +35,7 @@ player_num = "1"
 layout_mode = 0
 offset_right = 1303.0
 offset_bottom = 73.0
-theme_override_colors/font_color = Color(0.133333, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 40
 text = "Player 1, give your battle strategy. Press enter when ready."
 
@@ -48,5 +51,20 @@ text = "Please Wait"
 horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("2_g7r81")
+
+[node name="ColorRect" type="TextureRect" parent="."]
+show_behind_parent = true
+z_index = -5
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1.0
+offset_top = 1.0
+offset_right = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_f78n7")
+expand_mode = 1
 
 [connection signal="text_submitted" from="LineEdit" to="LineEdit" method="_on_text_submitted"]
