@@ -1,6 +1,7 @@
-[gd_scene load_steps=12 format=3 uid="uid://clisw0i0ftrp5"]
+[gd_scene load_steps=13 format=3 uid="uid://clisw0i0ftrp5"]
 
 [ext_resource type="Script" path="res://Player/Scripts/base_tank.gd" id="1_mbo02"]
+[ext_resource type="Texture2D" uid="uid://b4y1veytg605y" path="res://image_assets/PNG Tank/Hulls_Color_A/Hull_01.png" id="2_5x6ne"]
 [ext_resource type="PackedScene" uid="uid://bl04eliy7y4vb" path="res://Player/base_hull.tscn" id="2_l2ixg"]
 [ext_resource type="PackedScene" uid="uid://c65cbeqxuxtme" path="res://Player/base_turret.tscn" id="3_ruqtr"]
 [ext_resource type="Script" path="res://Player/state_machine.gd" id="4_pid6g"]
@@ -62,7 +63,11 @@ radius = 72.0
 height = 236.0
 
 [node name="BaseTank" type="CharacterBody2D"]
+top_level = true
 script = ExtResource("1_mbo02")
+hull_scene = ExtResource("2_l2ixg")
+turret_scene = ExtResource("3_ruqtr")
+color = "Blue"
 
 [node name="BaseHull" parent="." instance=ExtResource("2_l2ixg")]
 metadata/_edit_lock_ = true
@@ -90,3 +95,6 @@ script = ExtResource("7_v60ku")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_f4h1w")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_5x6ne")

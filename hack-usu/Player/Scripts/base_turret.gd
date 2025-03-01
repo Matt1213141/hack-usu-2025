@@ -24,6 +24,7 @@ func _ready():
 func _on_cooldown_timer_timeout():
 	can_shoot = true
 	
+	
 func _process( delta : float ) -> void:
 	var target = get_nearest_enemy()
 	if target:
@@ -35,6 +36,7 @@ func _process( delta : float ) -> void:
 func shoot(target):
 	if can_shoot:
 		can_shoot = false
+		print("Error: bullet scene not set")
 		#cooldown_timer.start()
 	else:
 		return
@@ -62,7 +64,9 @@ func get_nearest_enemy():
 func _on_body_entered(body):
 	if body.is_in_group("enemy"):
 		enemies_in_range.append(body)
+		print("enemy entered")
 		
 func _on_body_exited(body):
 	if body.is_in_group("enemy"):
 		enemies_in_range.erase(body)
+		print("enemy exited")
