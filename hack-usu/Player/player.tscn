@@ -1,0 +1,62 @@
+[gd_scene load_steps=5 format=3 uid="uid://c6s1j6dexb1cq"]
+
+[ext_resource type="Texture2D" uid="uid://d21s85q4j1ljd" path="res://image_assets/robot.png" id="1_2trtx"]
+
+[sub_resource type="Animation" id="Animation_jf02p"]
+resource_name = "idle_down"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4]
+}
+
+[sub_resource type="Animation" id="Animation_8lo8p"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lftlc"]
+_data = {
+"RESET": SubResource("Animation_8lo8p"),
+"idle_down": SubResource("Animation_jf02p")
+}
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+position = Vector2(-73, 25)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_2trtx")
+hframes = 5
+vframes = 5
+
+[node name="AnimationTree" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Sprite2D")
+libraries = {
+"": SubResource("AnimationLibrary_lftlc")
+}
+
+[node name="StateMachine" type="Node" parent="."]
+
+[node name="Idle" type="Node" parent="StateMachine"]
+
+[node name="Walk" type="Node" parent="StateMachine"]
+
+[node name="Attack" type="Node" parent="StateMachine"]
