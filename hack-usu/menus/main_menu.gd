@@ -7,7 +7,7 @@ func _ready():
 
 func _on_StartButton_pressed():
 	# Change to your game scene
-	get_tree().change_scene_to_file("res://player1_input.tscn")
+	SceneTransitionManager.transition_to("res://player1_input.tscn")
 
 func _on_QuitButton_pressed():
 	get_tree().quit()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://clisw0i0ftrp5"]
+[gd_scene load_steps=12 format=3 uid="uid://clisw0i0ftrp5"]
 
 [ext_resource type="Script" path="res://Player/Scripts/base_tank.gd" id="1_mbo02"]
 [ext_resource type="PackedScene" uid="uid://bl04eliy7y4vb" path="res://Player/base_hull.tscn" id="2_l2ixg"]
@@ -7,10 +7,6 @@
 [ext_resource type="Script" path="res://Player/Scripts/state_idle.gd" id="5_neoff"]
 [ext_resource type="Script" path="res://Player/Scripts/state_walk.gd" id="6_owgm2"]
 [ext_resource type="Script" path="res://Player/Scripts/state_attack.gd" id="7_v60ku"]
-[ext_resource type="PackedScene" uid="uid://cudmsbmwalfvr" path="res://GeneralNodes/HitBox/hit_box.tscn" id="8_3jopp"]
-[ext_resource type="Script" path="res://GeneralNodes/HitBox/hit_box.gd" id="9_guvxs"]
-[ext_resource type="PackedScene" uid="uid://dtj0og4ohfcok" path="res://GeneralNodes/HurtBox/hurt_box.tscn" id="10_e5ryk"]
-[ext_resource type="Script" path="res://GeneralNodes/HurtBox/hurt_box.gd" id="11_cx1f6"]
 
 [sub_resource type="Animation" id="Animation_8lo8p"]
 length = 0.001
@@ -61,14 +57,18 @@ _data = {
 "Shooting": SubResource("Animation_6epj2")
 }
 
-[sub_resource type="ConcavePolygonShape2D" id="ConcavePolygonShape2D_ldfji"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_f4h1w"]
+radius = 72.0
+height = 236.0
 
 [node name="BaseTank" type="CharacterBody2D"]
 script = ExtResource("1_mbo02")
 
 [node name="BaseHull" parent="." instance=ExtResource("2_l2ixg")]
+metadata/_edit_lock_ = true
 
 [node name="BaseTurret" parent="." instance=ExtResource("3_ruqtr")]
+metadata/_edit_lock_ = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("")
@@ -88,13 +88,5 @@ script = ExtResource("6_owgm2")
 [node name="Attack" type="Node" parent="StateMachine"]
 script = ExtResource("7_v60ku")
 
-[node name="HitBox" parent="." instance=ExtResource("8_3jopp")]
-script = ExtResource("9_guvxs")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
-shape = SubResource("ConcavePolygonShape2D_ldfji")
-
-[node name="HurtBox" parent="." instance=ExtResource("10_e5ryk")]
-script = ExtResource("11_cx1f6")
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="HurtBox"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_f4h1w")

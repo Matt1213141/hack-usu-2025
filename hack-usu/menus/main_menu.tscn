@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://bq1xyfufyrntl" path="res://menus/tank-button-background.svg" id="3_t7fiq"]
 [ext_resource type="AudioStream" uid="uid://dmj4kcj5uavr5" path="res://menus/Steel Horizons.mp3" id="4_ct03e"]
 
-[node name="Node2D2" type="Control"]
+[node name="Control" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
