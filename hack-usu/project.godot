@@ -18,3 +18,4 @@ config/icon="res://icon.svg"
 [autoload]
 
 PlayerManager="*res://Globals/player_manager.gd"
+TankManager="*res://Globals/tank_manager.gd"

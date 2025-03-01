@@ -7,6 +7,7 @@ var direction : Vector2 = Vector2.ZERO
 
 var invulnerable = false
 var hp : int = 100 # It's a tank, so it might have a lot
+var max_hp : int =  1000000000000000000
 
 @onready var animation_player : AnimationPlayer = $AnimationPlayer
 @onready var effect_animation_player : AnimationPlayer = null # TODO INSERT PATH HERE
@@ -45,3 +46,40 @@ func SetDirection() -> bool:
 	if direction == Vector2.ZERO:
 		# no movement detected, don't change the direction
 		return false
+	
+	var direction_id : int = int( round( ( direction + cardinal_direction  * 0.1 ).angle() / TAU * DIR_4.size() ) )
+	var new_dir = DIR_4[ direction_id ]
+	
+	if new_dir == cardinal_direction: 
+		return false
+		
+	cardinal_direction = new_dir
+	
+	DirectionChanged.emit( new_dir )
+	
+	sprite.scale.x - -1 if cardinal_direction == Vector2.LEFT else 1
+	return true
+
+func UpdateAnimation( state : String ) -> void:
+	animation_player.play( state + "_" + anim_direction() )
+	
+func anim_direction() -> String:
+	if cardinal_direction == Vector2.DOWN:
+		return "down"
+	elif cardinal_direction == Vector2.UP:
+		return "up"
+	else:
+		return "side"
+
+func _take_damage( hurt_box : HurtBox ) -> void:
+	if invulnerable == true: 
+		return # tank is invulnerable, can't take damage
+	update_hp( -hurt_box.damage )
+	if hp > 0:
+		player_damaged.emit( hurt_box )
+	else:
+		player_damaged.emit( hurt_box )
+		queue_free() # Remove the tank from the scene
+	
+func update_hp( delta : int ) -> void: 
+	hp = clampi( hp + delta, 0, max_hp)
