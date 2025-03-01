@@ -1,10 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://csulkx6l7gsi7"]
+[gd_scene load_steps=3 format=3 uid="uid://derarha15r4ne"]
 
-[ext_resource type="Script" path="res://line_edit.gd" id="1_e4eim"]
+[ext_resource type="Script" path="res://line_edit.gd" id="1_r612b"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1f25y"]
 
-[node name="Player1_input" type="Control"]
+[node name="Player2_input" type="Control"]
 show_behind_parent = true
 z_index = -1
 layout_mode = 3
@@ -24,8 +24,8 @@ placeholder_text = "Enter Text"
 alignment = 1
 expand_to_text_length = true
 caret_blink = true
-script = ExtResource("1_e4eim")
-player_num = "1"
+script = ExtResource("1_r612b")
+player_num = "2"
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
@@ -33,7 +33,7 @@ offset_right = 1303.0
 offset_bottom = 73.0
 theme_override_colors/font_color = Color(0.133333, 0, 0, 1)
 theme_override_font_sizes/font_size = 40
-text = "Player 1, give your battle strategy. Press enter when ready."
+text = "Player 2, give your battle strategy. Press enter when ready."
 
 [node name="Label2" type="Label" parent="."]
 modulate = Color(0.29219, 0.29219, 0.29219, 1)
