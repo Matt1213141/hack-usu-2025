@@ -25,6 +25,7 @@ placeholder_text = "Enter Text"
 alignment = 1
 caret_blink = true
 script = ExtResource("1_e4eim")
+player_num = "1"
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
@@ -46,5 +47,7 @@ text = "Please Wait"
 horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("2_g7r81")
+
+[node name="Node" type="Node" parent="."]
 
 [connection signal="text_submitted" from="LineEdit" to="LineEdit" method="_on_text_submitted"]
