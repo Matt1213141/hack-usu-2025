@@ -7,6 +7,7 @@ class_name StateWalk extends State
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	player.velocity = Vector2(5,0)
 	pass # Replace with function body.
 
 func Enter() -> void:
@@ -15,10 +16,14 @@ func Enter() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	
+	player.velocity = player.velocity.normalized() * player.velocity
+	print(player.velocity)
 	pass
 
 func Process( _delta : float ) -> State:
 	if player.direction == Vector2.ZERO:
+		print("stopping")
 		return idle
 		
 	player.velocity = player.direction * player.velocity

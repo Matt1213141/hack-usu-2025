@@ -15,10 +15,10 @@ func _ready() -> void:
 
 # What happens when the player enters this state
 func Enter() -> void:
-	player.UpdateAnimation("attack")
-	attack_anim.play("attack_" + player.anim_direction()) # TODO, should be child of player sprite
-	animation_player.animation_finished.connect( EndAttack ) # enter the EndAttack function when animation is finished
-	
+	#player.UpdateAnimation("attack")
+	#attack_anim.play("attack_" + player.anim_direction()) # TODO, should be child of player sprite
+	#animation_player.animation_finished.connect( EndAttack ) # enter the EndAttack function when animation is finished
+	#
 	attacking = true
 	
 	await get_tree().create_timer( 0.075 ).timeout # Can be changed
@@ -26,7 +26,7 @@ func Enter() -> void:
 	hurt_box.monitoring = true
 
 func Exit() -> void:
-	animation_player.animation_finished.disconnect( EndAttack )
+	#animation_player.animation_finished.disconnect( EndAttack )
 	attacking = false
 	
 	hurt_box.monitoring = false
