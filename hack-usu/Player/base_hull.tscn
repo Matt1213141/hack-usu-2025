@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://bl04eliy7y4vb"]
+
+[ext_resource type="Script" path="res://Player/Scripts/base_hull.gd" id="1_3xhpv"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_s1x8t"]
+
+[node name="BaseHull" type="Node2D"]
+script = ExtResource("1_3xhpv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_s1x8t")

@@ -81,6 +81,7 @@ func _on_request_completed(result: int, response_code: int, headers: Array, body
 				else:
 					LlmResources.llm_response2=generated_text
 				get_tree().change_scene_to_file("res://player2_input.tscn")
+				LlmResources.llm_response1=generated_text
 			else:
 				print("Unexpected response structure: ", response)
 		else:
